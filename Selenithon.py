@@ -1,10 +1,12 @@
-from selenium.webdriver import Safari, Firefox, Chrome
-from selenium.webdriver.common.action_chains import ActionChains
-from enum import Enum, auto
-from GetFunction import GetFuntion
 import logging
 import time
+
+from enum import Enum, auto
+from selenium.webdriver import Safari, Firefox, Chrome
+from selenium.webdriver.common.action_chains import ActionChains
+from GetFunction import GetFuntion
 from ActionFunction import ActionFuntion
+from CheckFunction import CheckFuntion
 
 logger = logging.getLogger(__name__)
 
@@ -18,7 +20,7 @@ class WebDriverOption(Enum):
     CHROME = auto()
 
 
-class Selenithon (GetFuntion, ActionFuntion):
+class Selenithon (GetFuntion, ActionFuntion, CheckFuntion):
     def __init__(self, webdriver_option: WebDriverOption) -> None:
         self.web_driver_option = webdriver_option
         self.web_driver = None
